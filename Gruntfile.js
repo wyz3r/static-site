@@ -15,10 +15,10 @@ module.exports = function(grunt) {
         packageSpecific: {
           'bootstrap': {
             files: [
-							'dist/css/bootstrap.css',
-							'fonts/*',
+              'dist/css/bootstrap.css',
+              'fonts/*',
               'dist/js/bootstrap.js'
-						],
+            ],
             js_dest: 'public/scripts/libs',
             css_dest: 'public/styles',
             dest: 'public/fonts'
@@ -82,24 +82,29 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.config('watch', {
-		scripts: {
-			files: ['client/**/*.js'],
-			tasks: ['jshint:client', 'copy']
-		},
-		html: {
-			files: ['client/**/*.jade'],
-			tasks: ['jade']
-		},
-		libs: {
-			files: ['bower.json', 'Gruntfile.js'],
-			tasks: ['bower']
-		},
-		styles: {
-			files: ['client/**/*.sass'],
-			tasks: ['sass']
-		}
-	});
+    scripts: {
+      files: ['client/**/*.js'],
+      tasks: ['jshint:client', 'copy']
+    },
+    html: {
+      files: ['client/**/*.jade'],
+      tasks: ['jade'],
+      options: {
+        livereload: {
+          port: 35729
+        }
+      }
+    },
+    libs: {
+      files: ['bower.json', 'Gruntfile.js'],
+      tasks: ['bower']
+    },
+    styles: {
+      files: ['client/**/*.sass'],
+      tasks: ['sass']
+    }
+  });
 
 
-  grunt.registerTask('default', ['clean:main','bower:dev','jade:compile','express:web','watch']);
+  grunt.registerTask('default', ['clean:main', 'bower:dev', 'jade:compile', 'express:web', 'watch']);
 };
