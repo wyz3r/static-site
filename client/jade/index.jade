@@ -12,5 +12,47 @@ html(lang="").no-js
     include ../jade_partials/styles.jade
     script(src="http://localhost:35729/livereload.js")
   body
-    p  Hello world! This is HTML5 Boilerplate and its awesome.
+    .nav-container
+      .container
+        nav.navbar.navbar-default.text-uppercase
+          .main-nav
+            .navbar-header.text-capitalize
+              a(href="#").navbar-brand.brand On Danse
+            .nav.navbar-nav.nav-content
+              li.nav-item
+                a(href="#") Cursos
+              li.nav-item
+                a(href="#") Ubicacion
+              li.nav-item
+                a(href="#") Maestros
+              li.nav-item
+                a(href="#") Acerca de Nosotros
+    .container
+      .img-content
+        div(data-ride="carousel")#mainCarousel.carousel.slide
+          ol.carousel-indicators
+            li(data-target="#myCarousel" data-slide-to="0" class="active")
+            li(data-target="#myCarousel" data-slide-to="1")
+            li(data-target="#myCarousel" data-slide-to="2")
+            li(data-target="#myCarousel" data-slide-to="3")
+          div(role="listbox").carousel-inner
+            .item.active
+              img(src="http://placehold.it/800x600" alt="Chania" width="800" height="600")
+            .item
+              img(src="http://placehold.it/800x600" alt="Chania" width="800" height="600")
+            .item
+              img(src="http://placehold.it/800x600" alt="Chania" width="800" height="600")
+            .item
+              img(src="http://placehold.it/800x600" alt="Chania" width="800" height="600")
+          a(href="#mainCarousel" role="button" data-slide="prev").left.carousel-control
+            span(aria-hidden="true").glyphicon.glyphicon-chevron-left
+            span.sr-only
+              | Previous
+          a(href="#mainCarousel" role="button" data-slide="next").right.carousel-control
+            span(aria-hidden="true").glyphicon.glyphicon-chevron-right
+            span.sr-only
+              | Next
+    .contact-strip
+      .container
+        
     include ../jade_partials/scripts.jade

@@ -1,2 +1,50 @@
+$pink: #FFB7C5
+$light-grey: #dadbdf
+$white: #fff
+$black: #000
+
+@font-face
+  font-family: "Freebooter"
+  src: url("/fonts/FREEBSC_.ttf") format('truetype')
 body
   font-family: Verdana
+  background-color: $light-grey
+  font-size: 12px
+
+
+.nav-container
+  background-color: $white
+
+.brand
+  background-color: $pink
+  font-family: "Freebooter",sans-serif
+  font-size: 3.5em
+
+.container
+  .navbar
+    margin: 0
+    box-shadow: none
+
+.nav-item
+  border-right: solid 0.1em $light-grey
+
+.nav-item:first-of-type
+  border-left:  solid 0.1em $light-grey
+
+.main-nav
+
+  padding: 0
+
+
+.nav-content
+  float: right
+  overflow: visible
+
+
+
+.brand:hover
+  text-decoration:none
+  color:inherit
+
+.carousel-inner > .item > img
+  margin: 0 auto

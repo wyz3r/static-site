@@ -13,16 +13,17 @@ module.exports = function(grunt) {
       options: {
         keepExpandedHierarchy: false,
         packageSpecific: {
-          'bootstrap': {
-            files: [
-              'dist/css/bootstrap.css',
-              'fonts/*',
-              'dist/js/bootstrap.js'
-            ],
-            js_dest: 'public/scripts/libs',
-            css_dest: 'public/styles',
-            dest: 'public/fonts'
-          }
+          'bootswatch-dist': {
+						css_dest: 'public/styles',
+						dest: 'public/fonts'
+					},
+          fontawesome: {
+						files: [
+							'css/font-awesome.css',
+							'fonts/*'
+						],
+						dest: 'public/fonts'
+					}
         }
       }
     }
@@ -101,10 +102,30 @@ module.exports = function(grunt) {
     },
     styles: {
       files: ['client/**/*.sass'],
-      tasks: ['sass']
+      tasks: ['sass'],
+      options: {
+        livereload: {
+          port: 35729
+        }
+      }
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['clean:main', 'bower:dev', 'jade:compile', 'express:web', 'watch']);
+
+  grunt.config('copy', {
+		main: {
+			files: [{
+				expand: true,
+				src: '**/*',
+				dest: 'public/fonts',
+				cwd: 'art/fonts'
+			}]
+		}
+
+	});
+
+
+  grunt.registerTask('default', ['clean:main', 'bower:dev', 'jade:compile','sass:dev','copy', 'express:web', 'watch']);
 };
