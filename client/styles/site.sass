@@ -1,6 +1,7 @@
 $pink: #FFB7C5
-$light-grey: #dadbdf
+$light-grey: #eee
 $white: #fff
+$dark-grey: #4d4d4d
 $black: #000
 
 @font-face
@@ -10,7 +11,6 @@ body
   font-family: Verdana
   background-color: $light-grey
   font-size: 12px
-
 
 .nav-container
   background-color: $white
@@ -40,7 +40,17 @@ body
   float: right
   overflow: visible
 
-
+.contact-strip
+  .container
+    padding: 0
+  background-color: $pink
+  font-size: 1.2em
+  padding: 1em 0 1em 0
+  .media-buttons
+    font-size: 1.5em
+    .fa
+      float: right
+      padding-left: 1em
 
 .brand:hover
   text-decoration:none
@@ -48,3 +58,29 @@ body
 
 .carousel-inner > .item > img
   margin: 0 auto
+
+.showcase-strip
+  .container
+    background-color: $white
+    padding: 1em 0 0 0
+
+.showcase-item
+  .img-responsive
+    margin: 0 auto 0 auto
+  .header
+    font-size: 1.3em
+    margin: 0.7em 0 0.7em 0
+  .separator
+    border-top: 0.2em solid $light-grey
+  .showcase-content
+    margin: 0.7em 0 0.7em 0
+  .plus-div
+    .fa
+      font-size: 1.5em
+      float: right
+      margin-right: 0.5em
+
+.footer
+  background-color: $dark-grey
+  color: $white
+  padding: 1.5em 0 1.5em 0
