@@ -40,6 +40,14 @@ module.exports = function(grunt) {
       files: {
         './public/styles/site.css': './client/styles/site.sass'
       }
+    },
+    deploy: {
+      options: {
+        style: 'compressed'
+      },
+      files: {
+        './public/styles/site.css': './client/styles/site.sass'
+      }
     }
   });
 
@@ -51,6 +59,11 @@ module.exports = function(grunt) {
       options: {
         client: false,
         pretty: true,
+        data: function(dest, src) {
+					return {
+						development : true
+					};
+				}
       },
       files: [{
         cwd: 'client/jade',
@@ -59,7 +72,26 @@ module.exports = function(grunt) {
         expand: true,
         ext: '.html'
       }]
-    }
+    },
+    deploy: {
+
+			options: {
+				client: false,
+				pretty: false,
+				data: function(dest, src) {
+					return {
+						development : false
+					};
+				}
+			},
+			files: [{
+				cwd: 'client/jade',
+				src: '**/*jade',
+				dest: 'public',
+				expand: true,
+				ext: '.html'
+			}]
+		}
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -89,7 +121,7 @@ module.exports = function(grunt) {
     },
     html: {
       files: ['client/**/*.jade'],
-      tasks: ['jade'],
+      tasks: ['jade:compile'],
       options: {
         livereload: {
           port: 35729
@@ -126,6 +158,13 @@ module.exports = function(grunt) {
 
 	});
 
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('default', ['clean:main', 'bower:dev', 'jade:compile','sass:dev','copy', 'express:web', 'watch']);
+
+
+
+
+  grunt.registerTask('default', ['clean:main', 'bower:dev'   , 'jade:compile' , 'sass:dev','copy', 'express:web', 'watch']);
+
+  grunt.registerTask('deploy' , ['clean:main', 'jade:deploy' , 'sass:deploy'  , 'copy']);
 };

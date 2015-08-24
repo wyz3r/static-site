@@ -8,9 +8,9 @@ html(lang="").no-js
     meta(name="description" content="")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="apple-touch-icon" href="apple-touch-icon.png")
-    script(type="text/javascript",src="scripts/libs/modernizr.js")
     include ../jade_partials/styles.jade
-    script(src="http://localhost:35729/livereload.js")
+    if development
+      script(src="http://localhost:35729/livereload.js")
   body
     .nav-container
       .container
