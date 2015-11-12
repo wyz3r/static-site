@@ -24,7 +24,8 @@
     "normalize.css": "~3.0.3",
     "modernizr": "~2.8.3",
     "hover": "~2.0.2",
-    "fontawesome": "~4.4.0"
+    "fontawesome": "~4.4.0",
+    "bootswatch-dist": "paper"
   },
   "devDependencies": {
     "livereload-js": "~2.2.1"
