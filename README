@@ -1,1 +1,7 @@
-Static site template.
+#Static site template.
+
+##Installation
+
+Run bower install
+
+Run npm install
