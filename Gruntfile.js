@@ -154,9 +154,26 @@ module.exports = function(grunt) {
 				dest: 'public/fonts',
 				cwd: 'art/fonts'
 			}]
-		}
+		},scripts:{
+      files: [{
+        expand:true,
+        src:'**/*.js',
+        dest:'public/js',
+        cwd:'client/js'
+      }]
+    }
+
+
 
 	});
+
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.config('jshint', {
+    app :['Gruntfile.js', 'app/**/*.js', ],
+    client: ['client/js/**/*.js', '!client/js/libs/**/*.js']
+  });
+
+
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
